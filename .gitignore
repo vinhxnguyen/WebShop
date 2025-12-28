@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SourceCode/WebShop/bin/Debug/net8.0
+/SourceCode/WebShop/obj
+/SourceCode/WebShop/.vs/WebShop.slnx/DesignTimeBuild
+/SourceCode/WebShop/.vs/WebShop.slnx/FileContentIndex
+/SourceCode/WebShop/.vs/WebShop.slnx/v18
+/.vs
+/SourceCode/WebShop/.vs/ProjectEvaluation
+/SourceCode/WebShop/.vs/WebShop/v18
