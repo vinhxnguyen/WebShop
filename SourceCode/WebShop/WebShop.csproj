@@ -7,7 +7,49 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\50%25off.gif" />
+    <None Include="wwwroot\images\arrowdown.gif" />
+    <None Include="wwwroot\images\bendlower.gif" />
+    <None Include="wwwroot\images\bendtop.gif" />
+    <None Include="wwwroot\images\bg.gif" />
+    <None Include="wwwroot\images\blank_img.gif" />
+    <None Include="wwwroot\images\bullet.gif" />
+    <None Include="wwwroot\images\details.gif" />
+    <None Include="wwwroot\images\divider.gif" />
+    <None Include="wwwroot\images\footer_bg.gif" />
+    <None Include="wwwroot\images\footer_right.gif" />
+    <None Include="wwwroot\images\footer_silver.gif" />
+    <None Include="wwwroot\images\foto.gif" />
+    <None Include="wwwroot\images\grey_left.gif" />
+    <None Include="wwwroot\images\grey_right.gif" />
+    <None Include="wwwroot\images\header.jpg" />
+    <None Include="wwwroot\images\ipod.gif" />
+    <None Include="wwwroot\images\keyboard.gif" />
+    <None Include="wwwroot\images\lcd.gif" />
+    <None Include="wwwroot\images\notepad.gif" />
+    <None Include="wwwroot\images\partners.gif" />
+    <None Include="wwwroot\images\printer.gif" />
+    <None Include="wwwroot\images\redleft.gif" />
+    <None Include="wwwroot\images\redright.gif" />
+    <None Include="wwwroot\images\red_bg.gif" />
+    <None Include="wwwroot\images\rightmenufooter.gif" />
+    <None Include="wwwroot\images\right_bg.gif" />
+    <None Include="wwwroot\images\scanner.gif" />
+    <None Include="wwwroot\images\search.gif" />
+    <None Include="wwwroot\images\silver_bg.gif" />
+    <None Include="wwwroot\images\tab1.gif" />
+    <None Include="wwwroot\images\top_bar.gif" />
+    <None Include="wwwroot\images\webcam.gif" />
+    <None Include="wwwroot\images\webcam2.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>

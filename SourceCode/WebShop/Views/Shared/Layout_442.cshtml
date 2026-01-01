@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" type="text/css"/>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <table width="762" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="7" align="left" valign="top"><img src="/images/blank_img.gif" width="1" height="7"></td>
+        </tr>
+        <tr>
+            <td height="75" align="left" valign="top">
+                <!--Banner-->
+                <table width="762" height="100%" border="0" cellpadding="0" cellspacing="0"> 
+                    <tr align="left" valign="top">
+                        <td width="27"><img src="/images/redleft.gif" width="27" height="75"></td>
+                        <td width="234" align="left" valign="middle" background="/images/red_bg.gif" class="caption" colspan="2">
+                            COMPUTER
+                            STORE
+                        </td>
+                        <!--<td width="476" align="right" valign="middle" background="/images/red_bg.gif">
+                            <table width="35%" border="0" cellspacing="0" cellpadding="0">
+                                <tr align="left" valign="top">
+                                    <td height="25" colspan="2">
+                                        <select name="select">
+                                            <option> --Product Search--</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25"><input name="textfield" type="text" value="-- Enter Keyword--" size="19"></td>
+                                    <td width="25" align="center" valign="middle"><a href="#"><img src="/images/search.gif" width="17" height="16" border="0"></a></td>
+                                </tr>
+                            </table>
+                        </td>-->
+                        <td width="25"><img src="/images/redright.gif" width="25" height="75"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="left" valign="top">
+                <!--Menu-->
+                <table width="762" height="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr align="left" valign="top">
+                        <td width="27"><img src="/images/grey_left.gif" width="27" height="40"></td>
+                        <td width="128" align="center" valign="top" background="/images/silver_bg.gif">
+                            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="9" align="center" valign="top"><img src="/images/arrowdown.gif" width="11" height="9"></td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="center" valign="middle"><a href="#" class="top">company</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="17" align="center" valign="top"><img src="/images/divider.gif" width="17" height="40"></td>
+                        <td width="128" align="center" valign="top" background="/images/silver_bg.gif">
+                            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="9" align="center" valign="top"><img src="/images/arrowdown.gif" width="11" height="9"></td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="center" valign="middle"><a href="#" class="top">products</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="17" align="center" valign="top"><img src="/images/divider.gif" width="17" height="40"></td>
+                        <td width="128" align="center" valign="top" background="/images/silver_bg.gif">
+                            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="9" align="center" valign="top"><img src="/images/arrowdown.gif" width="11" height="9"></td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="center" valign="middle"><a href="#" class="top">shopping</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="17" align="center" valign="top"><img src="/images/divider.gif" width="17" height="40"></td>
+                        <td width="128" align="center" valign="top" background="/images/silver_bg.gif">
+                            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="9" align="center" valign="top"><img src="/images/arrowdown.gif" width="11" height="9"></td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="center" valign="middle">
+                                        <a href="#" class="top">
+                                            order
+                                            now
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="17" align="center" valign="top"><img src="/images/divider.gif" width="17" height="40"></td>
+                        <td width="131" align="center" valign="top" background="/images/silver_bg.gif">
+                            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="9" align="center" valign="top"><img src="/images/arrowdown.gif" width="11" height="9"></td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="center" valign="middle"><a href="#" class="top">contact</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="24"><img src="/images/grey_right.gif" width="25" height="40"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="150" align="left" valign="top"><img src="/images/header.jpg" width="762" height="149" border="0" usemap="#Map2"></td>
+        </tr>
+        <tr>
+            <td height="7" align="left" valign="top"><img src="/images/blank_img.gif" width="1" height="7"></td>
+        </tr>
+        <tr>
+            <td height="20" align="left" valign="top">
+                <table width="762" height="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="254" align="left" valign="top">
+                            <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td height="56" align="center" valign="top" background="/images/tab1.gif" class="caption" style="background-repeat:no-repeat">
+                                        <table width="75%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="32" align="center" valign="bottom" class="caption">
+                                                    <font color="#666666">
+                                                        product
+                                                        categories
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" background="/images/right_bg.gif">
+                                        <table width="95%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">motherboard</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">processor</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">laptops</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">monitors</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    dvd
+                                                                    roms
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    cd
+                                                                    writers
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">mouse</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">webcam</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    pc
+                                                                    games
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    digital
+                                                                    notepad
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">keyboard</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    mouse
+                                                                    pad
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    optical
+                                                                    mouse &amp; keyboard
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">speakers</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    video
+                                                                    technologies
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle">
+                                                                <a href="#" class="top">
+                                                                    cordless
+                                                                    desktops
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" align="center" valign="middle" bgcolor="D7D8D7"><img src="/images/blank_img.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25" align="center" valign="middle">
+                                                    <table width="85%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="15%" height="22" align="center" valign="middle"><img src="/images/bullet.gif" width="4" height="4"></td>
+                                                            <td width="85%" height="22" align="left" valign="middle"><a href="#" class="top">playstation</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="32" align="left" valign="top"><img src="/images/rightmenufooter.gif" width="254" height="32"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="8"><img src="/images/blank_img.gif" width="8" height="1"></td>
+                        <td width="501" align="left" valign="top">
+                            <!--Main Body-->
+                            <!--<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td height="43" align="center" valign="middle" background="images/top_bar.gif" style="background-repeat:no-repeat">
+                                        <table width="82%" height="25" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="top" class="caption">
+                                                    <font color="#666666">
+                                                        featured
+                                                        products
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="4"><img src="images/blank_img.gif" width="1" height="4"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td height="15" align="left" valign="top"><img src="images/bendtop.gif" width="501" height="15"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" valign="middle" background="images/bg.gif">
+                                                    <table width="96%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr align="center" valign="top">
+                                                            <td width="33%" height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    Stylus
+                                                                                    C86 Inkjet Printer
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/scanner.gif" width="130" height="142"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle"><img src="images/details.gif" width="151" height="24" border="0" usemap="#Map"></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td width="1" bgcolor="DCDCDC"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td width="33%" height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    USB
+                                                                                    Web camera
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/webcam.gif" width="120" height="143"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <img src="images/details.gif" width="151" height="24" border="0" usemap="#MapMap">
+                                                                            <map name="MapMap">
+                                                                                <area shape="rect" coords="4,2,68,22" href="#">
+                                                                                <area shape="rect" coords="86,3,145,21" href="#">
+                                                                            </map>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td width="1" bgcolor="DCDCDC"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td width="34%" height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    LCD
+                                                                                    Monitor
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/lcd.gif" width="126" height="140"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <img src="images/details.gif" width="151" height="24" border="0" usemap="#MapMap2">
+                                                                            <map name="MapMap2">
+                                                                                <area shape="rect" coords="4,2,68,22" href="#">
+                                                                                <area shape="rect" coords="86,3,145,21" href="#">
+                                                                            </map>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr bgcolor="DCDCDC">
+                                                            <td height="1"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td width="1"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td height="1"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td height="1"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                        </tr>
+                                                        <tr align="center" valign="top">
+                                                            <td height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    Digital
+                                                                                    Photo maker
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/foto.gif" width="107" height="135"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <img src="images/details.gif" width="151" height="24" border="0" usemap="#MapMap5">
+                                                                            <map name="MapMap5">
+                                                                                <area shape="rect" coords="4,2,68,22" href="#">
+                                                                                <area shape="rect" coords="86,3,145,21" href="#">
+                                                                            </map>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td width="1" bgcolor="DCDCDC"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    Perfect
+                                                                                    Photo Scanner
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/printer.gif" width="147" height="132"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <img src="images/details.gif" width="151" height="24" border="0" usemap="#MapMap4">
+                                                                            <map name="MapMap4">
+                                                                                <area shape="rect" coords="4,2,68,22" href="#">
+                                                                                <area shape="rect" coords="86,3,145,21" href="#">
+                                                                            </map>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td bgcolor="DCDCDC"><img src="images/blank_img.gif" width="1" height="1"></td>
+                                                            <td height="50%">
+                                                                <table width="98%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <strong>
+                                                                                <font color="#666666">
+                                                                                    Pocket
+                                                                                    Handheld PDA
+                                                                                </font>
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle"><img src="images/notepad.gif" width="122" height="125"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td height="25" align="center" valign="middle">
+                                                                            <img src="images/details.gif" width="151" height="24" border="0" usemap="#MapMap3">
+                                                                            <map name="MapMap3">
+                                                                                <area shape="rect" coords="4,2,68,22" href="#">
+                                                                                <area shape="rect" coords="86,3,145,21" href="#">
+                                                                            </map>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="24" align="left" valign="top"><img src="images/bendlower.gif" width="501" height="24"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table> -->
+                            <div>
+                                @RenderBody()
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>       
+
+        <tr> 
+            <td height="7" align="left" valign="top"><img src="/images/blank_img.gif" width="1" height="7"></td>
+        </tr>
+        <tr>
+            <td height="38" align="left" valign="top">
+                <!--Footer-->
+                <table width="762" height="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr align="center" valign="middle">
+                        <td width="27" align="left" valign="top"><img src="/images/footer_silver.gif" width="27" height="38"></td>
+                        <td background="/images/footer_bg.gif">copyright information goes here</td>
+                        <td width="25" align="left" valign="top"><img src="/images/footer_right.gif" width="25" height="38"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <map name="Map">
+        <area shape="rect" coords="4,2,68,22" href="#">
+        <area shape="rect" coords="86,3,145,21" href="#">
+    </map>
+    <map name="Map2">
+        <area shape="rect" coords="371,101,485,130" href="#" alt="Enter Contest">
+    </map>
+</body>
+</html>

@@ -19,9 +19,10 @@ namespace WebShop.Controllers
         }
 
         public IActionResult Products()
-        {            
+        {
             //To do
-
+            ViewData["products"] = "Product 1: HP laptop";
+            ViewBag.Product = "Product 2: Dell laptop";
             return View("Products");
         }
 
