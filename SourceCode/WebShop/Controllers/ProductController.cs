@@ -8,6 +8,14 @@ namespace WebShop.Controllers
         // GET: ProductController
         public ActionResult Index()
         {
+            // Load new products
+            ViewBag.NewProducts = new List<string>();
+
+            // Load featured products
+
+            // Load categories
+            ViewBag.ProductCategories = new List<string>() { "Laptop", "Smart Phone", "Speaker"};
+
             return View("Product");
         }
 
