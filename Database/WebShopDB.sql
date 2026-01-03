@@ -183,24 +183,6 @@ CREATE TABLE [dbo].[SalesOrder](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[OrderDetail]    Script Date: 11/17/2012 23:01:22 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[OrderProduct](
-	[OrderProductId] [int] IDENTITY(1,1) NOT NULL,
-	[OrderId] [int] NOT NULL,
-	[ProductId] [int] NOT NULL,
-	[Price] [float] NOT NULL,
-	[Quantity] [tinyint] NOT NULL,
-	[Total] [float] NOT NULL,
- CONSTRAINT [PK_OrderDetail] PRIMARY KEY CLUSTERED 
-(
-	[OrderProductId] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
 
 /****** Object:  Table [dbo].[OrderProduct]    Script Date: 1/3/2026 12:42:30 PM ******/
 SET ANSI_NULLS ON
