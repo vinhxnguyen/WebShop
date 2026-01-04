@@ -1,0 +1,100 @@
+﻿@model WebShop.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductNumber" class="control-label"></label>
+                <input asp-for="ProductNumber" class="form-control" />
+                <span asp-validation-for="ProductNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDesc" class="control-label"></label>
+                <input asp-for="ShortDesc" class="form-control" />
+                <span asp-validation-for="ShortDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unit" class="control-label"></label>
+                <input asp-for="Unit" class="form-control" />
+                <span asp-validation-for="Unit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oldprice" class="control-label"></label>
+                <input asp-for="Oldprice" class="form-control" />
+                <span asp-validation-for="Oldprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPromotion" /> @Html.DisplayNameFor(model => model.IsPromotion)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsFeatured" /> @Html.DisplayNameFor(model => model.IsFeatured)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmallImage" class="control-label"></label>
+                <input asp-for="SmallImage" class="form-control" />
+                <span asp-validation-for="SmallImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BigImage" class="control-label"></label>
+                <input asp-for="BigImage" class="form-control" />
+                <span asp-validation-for="BigImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsInstock" class="control-label"></label>
+                <input asp-for="IsInstock" class="form-control" />
+                <span asp-validation-for="IsInstock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

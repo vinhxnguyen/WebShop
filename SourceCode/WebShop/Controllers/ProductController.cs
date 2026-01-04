@@ -1,10 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebShop.Models;
 
 namespace WebShop.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly WebshopdbContext _context;
+        public ProductController(WebshopdbContext context)
+        {
+            _context = context;
+        }
         // GET: ProductController
         public ActionResult Index()
         {
@@ -14,7 +20,7 @@ namespace WebShop.Controllers
             // Load featured products
 
             // Load categories
-            ViewBag.ProductCategories = new List<string>() { "Laptop", "Smart Phone", "Speaker"};
+            ViewBag.ProductCategories = _context.ProductCategories.ToList();
 
             return View("Product");
         }
