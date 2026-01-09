@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using WebShop.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WebShop.Areas.Admin.Controllers
 {
@@ -13,6 +15,7 @@ namespace WebShop.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly WebshopdbContext _context;
+        private readonly IWebHostEnvironment _appEnvironment;
 
         public ProductsController(WebshopdbContext context)
         {
@@ -57,15 +60,19 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImage,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImageFileName,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
         {
             ProductCategory category = _context.ProductCategories.Find(product.CategoryId);
             product.Category = category;
+            product.CreatedOn = DateTime.Now;
+            product.CreatedBy = 1; // Placeholder for the user ID, replace with actual user ID in a real application
 
             ModelState.Remove("Category");
 
             if (ModelState.IsValid)
             {
+                //Luu file             
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -171,6 +178,20 @@ namespace WebShop.Areas.Admin.Controllers
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
+        }
+
+        private string MakeFileNameUnique(string fileName)
+        {
+            string newFileName = string.Empty;
+
+            int lastIndex = fileName.LastIndexOf('.');
+            var name = fileName.Substring(0, lastIndex);
+            var ext = fileName.Substring(lastIndex + 1);
+
+            //var fileName2 = name + "_" + Guid.NewGuid().ToString().Replace("-", string.Empty) + "." + ext;
+            newFileName = name + "_" + string.Format("{0}{1}{2}{3}", DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second) + "." + ext;
+
+            return newFileName;
         }
     }
 }

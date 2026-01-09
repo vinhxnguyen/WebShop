@@ -64,19 +64,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="SmallImage" class="control-label"></label>
-                <input asp-for="SmallImage" class="form-control" />
+                <input type="file" asp-for="SmallImage" class="form-control" />
                 <span asp-validation-for="SmallImage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BigImage" class="control-label"></label>
-                <input asp-for="BigImage" class="form-control" />
+                @* <input asp-for="BigImage" class="form-control" /> *@
+                <input type="file" asp-for="BigImage" class="form-control" />
                 <span asp-validation-for="BigImage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IsInstock" class="control-label"></label>
+                <label asp-for="IsInstock" class="control-label">
+                </label>
                 <input asp-for="IsInstock" class="form-control" />
                 <span asp-validation-for="IsInstock" class="text-danger"></span>
             </div>
+            <!--
             <div class="form-group">
                 <label asp-for="CreatedBy" class="control-label"></label>
                 <input asp-for="CreatedBy" class="form-control" />
@@ -87,6 +90,7 @@
                 <input asp-for="CreatedOn" class="form-control" />
                 <span asp-validation-for="CreatedOn" class="text-danger"></span>
             </div>
+            -->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
