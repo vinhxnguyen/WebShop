@@ -60,8 +60,10 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImageFileName,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
+        public async Task<IActionResult> Create(ProductViewModel model)
         {
+            Product product = new Product();
+            CopyProperties(model, product);
             ProductCategory category = _context.ProductCategories.Find(product.CategoryId);
             product.Category = category;
             product.CreatedOn = DateTime.Now;
@@ -71,7 +73,24 @@ namespace WebShop.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                //Luu file             
+                //Luu images to DB
+                if (model.SmallImageFile != null && model.SmallImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await model.SmallImageFile.CopyToAsync(ms);
+                        product.SmallImage = ms.ToArray();
+                    }
+                }
+
+                if (model.BigImageFile != null && model.BigImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await model.BigImageFile.CopyToAsync(ms);
+                        product.BigImage = ms.ToArray();
+                    }
+                }
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -178,6 +197,24 @@ namespace WebShop.Areas.Admin.Controllers
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
+        }
+
+        private void CopyProperties(ProductViewModel source, Product destination)
+        {
+            destination.ProductId = source.ProductId;
+            destination.ProductNumber = source.ProductNumber;
+            destination.Name = source.Name;
+            destination.ShortDesc = source.ShortDesc;
+            destination.Description = source.Description;
+            destination.Unit = source.Unit;
+            destination.UnitPrice = source.UnitPrice;
+            destination.Oldprice = source.Oldprice;
+            destination.CategoryId = source.CategoryId;
+            destination.IsPromotion = source.IsPromotion;
+            destination.IsFeatured = source.IsFeatured;            
+            destination.IsInstock = source.IsInstock;
+            destination.CreatedBy = source.CreatedBy;
+            destination.CreatedOn = source.CreatedOn;
         }
 
         private string MakeFileNameUnique(string fileName)
