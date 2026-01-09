@@ -59,12 +59,24 @@ namespace WebShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImage,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
         {
+            ProductCategory category = _context.ProductCategories.Find(product.CategoryId);
+            product.Category = category;
+
+            ModelState.Remove("Category");
+
             if (ModelState.IsValid)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                // Use a breakpoint here to inspect the 'errors' variable
+            }
+
             ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "ProductCategoryId", product.CategoryId);
             return View(product);
         }
