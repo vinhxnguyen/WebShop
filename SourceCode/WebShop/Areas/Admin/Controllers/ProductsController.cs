@@ -51,7 +51,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "ProductCategoryId");
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "CategoryName");
             return View();
         }
 
@@ -73,7 +73,7 @@ namespace WebShop.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                //Luu images to DB
+                // Convert image to bytes[], save images to DB
                 if (model.SmallImageFile != null && model.SmallImageFile.Length > 0)
                 {
                     using (var ms = new MemoryStream())
@@ -103,7 +103,7 @@ namespace WebShop.Areas.Admin.Controllers
                 // Use a breakpoint here to inspect the 'errors' variable
             }
 
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "ProductCategoryId", product.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -120,8 +120,14 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "ProductCategoryId", product.CategoryId);
-            return View(product);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "CategoryName", product.CategoryId);
+
+            //Convert to ViewModel
+            ProductViewModel productViewModel = new ProductViewModel();
+            CopyProperties(product, productViewModel);
+
+            //return View(product);
+            return View(productViewModel);
         }
 
         // POST: Admin/Products/Edit/5
@@ -129,8 +135,17 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImage,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
+        //public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImage,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
+        public async Task<IActionResult> Edit(int id, ProductViewModel model)
         {
+            // Copy data from model to Product object
+            Product product = new Product();
+            product = model;
+            // set Category
+            ProductCategory category = _context.ProductCategories.Find(product.CategoryId);
+            product.Category = category;
+            ModelState.Remove("Category");
+
             if (id != product.ProductId)
             {
                 return NotFound();
@@ -138,6 +153,25 @@ namespace WebShop.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+                // Convert image to bytes[], save images to DB
+                if (model.SmallImageFile != null && model.SmallImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await model.SmallImageFile.CopyToAsync(ms);
+                        product.SmallImage = ms.ToArray();
+                    }
+                }
+
+                if (model.BigImageFile != null && model.BigImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await model.BigImageFile.CopyToAsync(ms);
+                        product.BigImage = ms.ToArray();
+                    }
+                }
+
                 try
                 {
                     _context.Update(product);
@@ -156,7 +190,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "ProductCategoryId", product.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.ProductCategories, "ProductCategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -215,6 +249,18 @@ namespace WebShop.Areas.Admin.Controllers
             destination.IsInstock = source.IsInstock;
             destination.CreatedBy = source.CreatedBy;
             destination.CreatedOn = source.CreatedOn;
+        }
+        public void CopyProperties<T>(T source, T target)
+        {
+            var props = typeof(T).GetProperties();
+            foreach (var prop in props)
+            {
+                if (prop.CanRead && prop.CanWrite)
+                {
+                    var value = prop.GetValue(source, null);
+                    prop.SetValue(target, value, null);
+                }
+            }
         }
 
         private string MakeFileNameUnique(string fileName)

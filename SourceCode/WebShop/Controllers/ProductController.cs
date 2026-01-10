@@ -18,6 +18,20 @@ namespace WebShop.Controllers
             ViewBag.NewProducts = new List<string>();
 
             // Load featured products
+            // LINQ 1: https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/query-expression-basics
+            List<Product> featureProducts = _context.Products.Where(pr => pr.IsFeatured == true).Take(3).ToList();
+            ViewBag.FeaturedProducts = featureProducts;
+
+            // Load promotion products            
+            // LINQ 2: https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/query-expression-basics
+            IEnumerable<Product> promoProducts = from p in _context.Products
+                                                 where p.IsPromotion == true
+                                                 select p;
+            
+            ViewBag.PromotionProducts = promoProducts.ToList();
+
+            // Load all products
+            ViewBag.AllProducts = _context.Products.ToList();
 
             // Load categories
             ViewBag.ProductCategories = _context.ProductCategories.ToList();

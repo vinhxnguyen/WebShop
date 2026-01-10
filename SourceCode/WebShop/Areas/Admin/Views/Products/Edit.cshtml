@@ -1,4 +1,4 @@
-﻿@model WebShop.Models.Product
+﻿@model WebShop.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductId" />
             <div class="form-group">
@@ -66,27 +66,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="SmallImage" class="control-label"></label>
-                <input asp-for="SmallImage" class="form-control" />
+                @* <input asp-for="SmallImage" class="form-control" /> *@
+                <input type="file" name="SmallImageFile" class="form-control" />
                 <span asp-validation-for="SmallImage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BigImage" class="control-label"></label>
-                <input asp-for="BigImage" class="form-control" />
+                @* <input asp-for="BigImage" class="form-control" /> *@
+                <input type="file" name="BigImageFile" class="form-control" />
                 <span asp-validation-for="BigImage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IsInstock" class="control-label"></label>
-                <input asp-for="IsInstock" class="form-control" />
+                <input asp-for="IsInstock" class="form-control" />                                
                 <span asp-validation-for="IsInstock" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
+                <input asp-for="CreatedBy" class="form-control" readonly/>
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
+                <input asp-for="CreatedOn" class="form-control" readonly />
                 <span asp-validation-for="CreatedOn" class="text-danger"></span>
             </div>
             <div class="form-group">
