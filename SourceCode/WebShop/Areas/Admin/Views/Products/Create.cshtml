@@ -10,74 +10,96 @@
 <h4>Product</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProductNumber" class="control-label"></label>
-                <input asp-for="ProductNumber" class="form-control" />
-                <span asp-validation-for="ProductNumber" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="ProductNumber" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="ProductNumber" class="form-control" />
+                    <span asp-validation-for="ProductNumber" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="Name" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>                
             </div>
-            <div class="form-group">
-                <label asp-for="ShortDesc" class="control-label"></label>
-                <input asp-for="ShortDesc" class="form-control" />
-                <span asp-validation-for="ShortDesc" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="ShortDesc" class="col-sm-2 control-label">Short Description</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="ShortDesc" class="col-sm-10 form-control" rows="3"></textarea>
+                    <span asp-validation-for="ShortDesc" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="Description" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <textarea asp-for="Description" class="col-sm-10 form-control" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Unit" class="control-label"></label>
-                <input asp-for="Unit" class="form-control" />
-                <span asp-validation-for="Unit" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="Unit" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Unit" class="form-control" />
+                    <span asp-validation-for="Unit" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="UnitPrice" class="control-label"></label>
-                <input asp-for="UnitPrice" class="form-control" />
-                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="UnitPrice" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="UnitPrice" class="form-control" />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Oldprice" class="control-label"></label>
-                <input asp-for="Oldprice" class="form-control" />
-                <span asp-validation-for="Oldprice" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="Oldprice" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Oldprice" class="form-control" />
+                    <span asp-validation-for="Oldprice" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            <div class="row mb-3">
+                <label asp-for="CategoryId" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsPromotion" /> @Html.DisplayNameFor(model => model.IsPromotion)
-                </label>
+            <div class="row mb-3">
+                <label class="col-sm-2 control-label">Is it on promotion?</label>
+                <div class="col-sm-10">
+                    <input class="form-check-input" asp-for="IsPromotion" />
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsFeatured" /> @Html.DisplayNameFor(model => model.IsFeatured)
-                </label>
+            <div class="row mb-3">
+                <label class="col-sm-2 control-label">Is feature product?</label>
+                <div class="col-sm-10">
+                    <input class="form-check-input" asp-for="IsFeatured" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SmallImage" class="control-label"></label>
-                <input type="file" name="SmallImageFile" class="form-control" />
-                @* <span asp-validation-for="SmallImage" class="text-danger"></span> *@
+            <div class="row mb-3">
+                <label asp-for="SmallImage" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input type="file" name="SmallImageFile" class="form-control" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="BigImage" class="control-label"></label>
-                @* <input asp-for="BigImage" class="form-control" /> *@
-                <input type="file" name="BigImageFile" class="form-control" />
-                @* <span asp-validation-for="BigImage" class="text-danger"></span> *@
+            <div class="row mb-3">
+                <label asp-for="BigImage" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input type="file" name="BigImageFile" class="form-control" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="IsInstock" class="control-label">
-                </label>
-                <input asp-for="IsInstock" class="form-control" />
-                <span asp-validation-for="IsInstock" class="text-danger"></span>
+            <div class="row mb-3">
+                <label asp-for="IsInstock" class="col-sm-2 control-label">Is in stock?</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" asp-for="IsInstock" class="form-check-input" />
+                    <span asp-validation-for="IsInstock" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
             </div>
             <!--
             <div class="form-group">

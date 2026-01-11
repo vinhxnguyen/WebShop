@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebShop.Models;
 
 namespace WebShop.Controllers
@@ -42,8 +43,14 @@ namespace WebShop.Controllers
         // GET: ProductController/Details/5
         public ActionResult Details(int id)
         {
-            ViewData["productId"] = id;
-            return View("ProductDetail");
+            ViewData["ProductId"] = id;
+            // Load categories
+            ViewBag.ProductCategories = _context.ProductCategories.ToList<ProductCategory>();
+
+            //load product
+            Product product = _context.Products.Include(p => p.Category).FirstOrDefault(p => p.ProductId == id);
+
+            return View("ProductDetail", product);
         }
 
         // GET: ProductController/Create

@@ -135,7 +135,6 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductNumber,Name,ShortDesc,Description,Unit,UnitPrice,Oldprice,CategoryId,IsPromotion,IsFeatured,SmallImage,BigImage,IsInstock,CreatedBy,CreatedOn")] Product product)
         public async Task<IActionResult> Edit(int id, ProductViewModel model)
         {
             // Copy data from model to Product object
@@ -149,6 +148,17 @@ namespace WebShop.Areas.Admin.Controllers
             if (id != product.ProductId)
             {
                 return NotFound();
+            }
+
+            // if SmallImage is not changed, ignore it
+            if(model.SmallImageFile == null)
+            {
+                ModelState.Remove("SmallImageFile");
+            }
+            // if BigImage is not change, ignore it
+            if(model.BigImageFile == null)
+            {
+                ModelState.Remove("BigImageFile");
             }
 
             if (ModelState.IsValid)

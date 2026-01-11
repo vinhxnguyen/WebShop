@@ -1,10 +1,76 @@
-﻿
+﻿@model WebShop.Models.Product
+
 @{
-    ViewData["Title"] = "ProductDetail";
+    ViewData["Title"] = "Product Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>ProductDetail</h1>
-
-<p>Product id: @ViewData["productId"]</p>
-
+<div class="row">
+    <!--left panel------------------------------------->
+    <div class="col-3">
+        <!--Product Categories-->
+        <div class="alert alert-primary" role="alert">
+            <h5 class="alert-heading">Product categories</h5>
+        </div>
+        <div class="list-group">
+            @foreach (var category in (List<ProductCategory>)ViewBag.ProductCategories)
+            {
+                <a href="" class="list-group-item list-group-item-action">@category.CategoryName</a>
+            }
+        </div>
+        <!--Search-->
+        <div class='row mt-3'></div>
+        <div class="card border-success mb-3">
+            <div class="card-header">Tìm kiếm</div>
+            <div class="card-body text-success">
+                <form class="form-inline" asp-controller="Home" asp-action="Search">
+                    <p>
+                        <label for="searchString" class="sr-only">Từ khoá</label>
+                        <input type="text" class="form-control" id="searchString" name="searchString" placeholder="từ khoá">
+                    </p>
+                    <p><button type="submit" class="btn btn-success mb-2">Tìm</button></p>
+                </form>
+            </div>
+        </div>
+        <!--Advertising-->
+        <div class="card border-success mb-3">
+            <div class="card-header">Đặt hàng qua điện thoại</div>
+            <div class="card-body text-success">
+                <h5 class="card-title">0918 337 10</h5>
+                <p class="card-text">Vui lòng gọi số phone này để đặt hàng.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Đặt hàng qua email</div>
+            <div class="card-body">
+                <h5 class="card-title">myemail@mail.com</h5>
+                <p class="card-text">Vui lòng gửi email này để đặt hàng.</p>
+            </div>
+        </div>
+    </div>
+    <!--end left panel------------------------------------->
+    <!--right panel------------------------------------->
+    <div class="col-9">
+        <div class="alert alert-success" role="alert">
+            <h5 class="alert-heading">Product detail</h5>
+        </div>
+        <!--Chi tiet san pham -->
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card w-100">
+                    <img class="card-img" src="data:image/png;base64,@Convert.ToBase64String(Model.BigImage)" alt="laptop">
+                    <div class="card-body">
+                        <h4 class="card-title">@Html.DisplayFor(model => model.Name)</h4>
+                        <h6 class="card-subtitle mb-2 text-danger">@Html.DisplayFor(model => model.ShortDesc)</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(model => model.ProductNumber)</h6>
+                        <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-4 text-danger">@Html.DisplayFor(model => model.UnitPrice) VND</h5></div>
+                            <a class="btn btn-success mt-3" asp-controller="Cart" asp-action="Buy" asp-route-id="@Model.ProductId"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">&nbsp;</div>
+        </div>
+    </div>
+</div>

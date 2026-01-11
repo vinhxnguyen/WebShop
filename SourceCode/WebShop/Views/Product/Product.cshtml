@@ -4,21 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
+    <!--left panel (3/12 columns)----------------------------->
     <div class="col-3">
+        <!--Product Categories-->
         <div class="alert alert-primary" role="alert">
-            Product categories
+            <h5 class="alert-heading">Product categories</h5>
         </div>
         <div class="list-group">
             @foreach (var category in ViewBag.ProductCategories)
             {
                 <a href="#" class="list-group-item list-group-item-action">@category.CategoryName</a>
-            }
-            <!-- <a href="#" class="list-group-item list-group-item-action" aria-current="true">Laptop</a>
-            <a href="#" class="list-group-item list-group-item-action active">A second link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a> -->
+            }           
         </div>
+        <!--Search-->
         <div class='row mt-3'></div>
         <div class="card border-success mb-3">
             <div class="card-header">Tìm kiếm</div>
@@ -32,6 +30,7 @@
                 </form>
             </div>
         </div>
+        <!--Advertising-->
         <div class="card border-success mb-3">
             <div class="card-header">Đặt hàng qua điện thoại</div>
             <div class="card-body text-success">
@@ -47,9 +46,11 @@
             </div>
         </div>
     </div>
+    <!--end left panel------------------------------------->
+    <!--right panel (9/12 columns)----------------------------->
     <div class="col-9">
         <div class="alert alert-primary" role="alert">
-            Promotion products
+            <h5 class="alert-heading">Promotion products</h5>
         </div>
         <div class="row">
             @foreach (Product product in ViewBag.PromotionProducts)
@@ -87,4 +88,5 @@
             </div> *@
         </div>
     </div>
+    <!--end right panel------------------------------------->
 </div>

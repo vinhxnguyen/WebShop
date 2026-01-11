@@ -31,7 +31,7 @@ public partial class Product
 
     public byte[]? BigImage { get; set; }
 
-    public bool? IsInstock { get; set; }
+    public bool IsInstock { get; set; }
 
     public int CreatedBy { get; set; }
 
