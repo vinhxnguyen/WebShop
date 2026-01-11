@@ -43,7 +43,7 @@ namespace WebShop.Controllers
         // GET: ProductController/Details/5
         public ActionResult Details(int id)
         {
-            ViewData["ProductId"] = id;
+            //ViewData["ProductId"] = id;
             // Load categories
             ViewBag.ProductCategories = _context.ProductCategories.ToList<ProductCategory>();
 
@@ -114,6 +114,36 @@ namespace WebShop.Controllers
             {
                 return View();
             }
+        }
+
+        public IActionResult Search(string keyword)
+        {
+            var result = new List<Product>();
+
+            // if there are more than one keyword, split them and search one by one
+            string[] keywordArr = keyword.Split(" ");
+            foreach (var kw in keywordArr)
+            {
+                // search in Name, ProductNumber, ShortDesc, Description
+                // load Category to avoid lazy loading issue
+                var products = _context.Products.Include(p => p.Category).Where(p => p.Name.Contains(kw) ||
+                    p.ProductNumber.Equals(kw) || p.ShortDesc.Contains(kw) ||
+                    p.Description.Contains(kw)).ToList();
+
+                if (products.Count() > 0)
+                {
+                    foreach (var p in products)
+                    {
+                        if (!result.Contains(p))
+                            result.Add(p);
+                    }
+                }
+            }
+
+            // Load categories
+            ViewBag.ProductCategories = _context.ProductCategories.ToList<ProductCategory>();
+
+            return View("Search", result);
         }
     }
 }

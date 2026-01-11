@@ -1,6 +1,6 @@
-﻿
+﻿@model IEnumerable<WebShop.Models.Product>
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = "Search Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
@@ -29,35 +29,27 @@
                     <p><button type="submit" class="btn btn-success mb-2">Tìm</button></p>
                 </form>
             </div>
-        </div>
-        <!--Advertising-->
-        <div class="card border-success mb-3">
-            <div class="card-header">Đặt hàng qua điện thoại</div>
-            <div class="card-body text-success">
-                <h5 class="card-title">0918 337 10</h5>
-                <p class="card-text">Vui lòng gọi số phone này để đặt hàng.</p>
-            </div>
-        </div>
-        <div class="card text-white bg-success mb-3">
-            <div class="card-header">Đặt hàng qua email</div>
-            <div class="card-body">
-                <h5 class="card-title">vinhxnguyen78@gmail.com</h5>
-                <p class="card-text">Vui lòng gửi email này để đặt hàng.</p>
-            </div>
-        </div>
+        </div>        
     </div>
     <!--end left panel------------------------------------->
     <!--right panel (9/12 columns)----------------------------->
     <div class="col-9">
         <div class="alert alert-primary" role="alert">
-            <h5 class="alert-heading">Promotion products</h5>
+            <h5 class="alert-heading">Search result: found @Model.Count() products</h5>
         </div>
         <div class="row">
-            @foreach (Product product in ViewBag.PromotionProducts)
-        {
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(product.SmallImage)" class="card-img-top" alt="...">
+            @foreach (Product product in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        @if (product.SmallImage != null)
+                        {
+                            <img src="data:image/png;base64,@Convert.ToBase64String(product.SmallImage)" class="card-img-top" alt="...">
+                        }
+                        else
+                        {
+                            <img src="~/images/no-image.png" class="card-img-top" alt="No Image">
+                        }                        
                     <div class="card-body">
                         <h5 class="card-title">@product.Name</h5>
                         <p class="card-text">@product.ShortDesc</p>
@@ -65,8 +57,7 @@
                     </div>
                 </div>
             </div>
-        }
-            
+            }        
         </div>
     </div>
     <!--end right panel------------------------------------->
