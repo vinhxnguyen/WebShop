@@ -21,15 +21,23 @@ namespace WebShop.Controllers
             return View();
         }
 
-        
-
-        public IActionResult Products()
+        public IActionResult Contactus()
         {
-            //To do
-            ViewData["products"] = "Product 1: HP laptop";
-            ViewBag.Product = "Product 2: Dell laptop";
-            return View("Products");
+            StaticPage contactusPage = _context.StaticPages
+                .FirstOrDefault(p => p.PageTitle.ToLower() == "contact us" && p.LanguageId == "vn-vi");
+
+            ViewData["Content"] = contactusPage != null ? contactusPage.PageContent : "Content not found.";
+
+            return View("Contactus");
         }
+
+        //public IActionResult Products()
+        //{
+        //    //To do
+        //    ViewData["products"] = "Product 1: HP laptop";
+        //    ViewBag.Product = "Product 2: Dell laptop";
+        //    return View("Products");
+        //}
 
         public IActionResult Privacy()
         {

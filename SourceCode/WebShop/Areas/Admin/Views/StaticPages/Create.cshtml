@@ -1,0 +1,118 @@
+﻿@model WebShop.Models.StaticPage
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>StaticPage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div class="row mb-3">                
+                <label asp-for="PageId" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="PageId" class="form-control" />
+                    <span asp-validation-for="PageId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="PageTitle" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="PageTitle" class="form-control" />
+                    <span asp-validation-for="PageTitle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="LanguageId" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="LanguageId" class="form-control" value="vn-vi"/>
+                    <span asp-validation-for="LanguageId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="PageContent" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <textarea asp-for="PageContent" id="editor" rows="10"></textarea>
+                    <span asp-validation-for="PageContent" class="text-danger"></span>
+                </div>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastUpdatedBy" class="control-label"></label>
+                <input asp-for="LastUpdatedBy" class="form-control" />
+                <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedOn" class="control-label"></label>
+                <input asp-for="ModifiedOn" class="form-control" />
+                <span asp-validation-for="ModifiedOn" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    <link rel="stylesheet" href="/lib/ckeditor5/ckeditor5.css" />
+</script>
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "/lib/ckeditor5/ckeditor5.js",
+            "ckeditor5/": "/lib/ckeditor5/"
+        }
+    }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+        List,        // Added
+        Table,       // Added
+        TableToolbar,// Added
+        Link,        // Added
+        BlockQuote,  // Added
+        Heading      // Added
+    } from 'ckeditor5';
+
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            licenseKey: 'GPL',
+            plugins: [Essentials, Paragraph, Bold, Italic, Font, List, Table, TableToolbar, Link, BlockQuote, Heading],
+            toolbar: [
+                'heading',
+                '|',
+                'bold', 'italic', 'link', 'blockquote',
+                '|',
+                'bulletedList', 'numberedList',
+                '|',
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            console.log('Editor was initialized', editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
