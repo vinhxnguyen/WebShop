@@ -1,8 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Home Page";    
 }
+
+<link href="~/lib/ckeditor5/ckeditor5.css" rel="stylesheet" />
+
 <div class="row">
     <div class="col-md-12">
         <h2>Welcome to WebShop!</h2>
     </div>
 </div>
+<div class="mb-3">
+    <label  class="form-label">Product Description</label>
+    <textarea  class="form-control" id="editor"></textarea>
+</div>
+
+<script>
+    <link rel="stylesheet" href="~/lib/ckeditor5/ckeditor5.css" />
+</script>
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "/lib/ckeditor5/ckeditor5.js",
+            "ckeditor5/": "/lib/ckeditor5/"
+        }
+    }
+</script>
+
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+        List,        // Added
+        Table,       // Added
+        TableToolbar,// Added
+        Link,        // Added
+        BlockQuote,  // Added
+        Heading      // Added
+    } from 'ckeditor5';
+
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            licenseKey: 'GPL',
+            plugins: [Essentials, Paragraph, Bold, Italic, Font, List, Table, TableToolbar, Link, BlockQuote, Heading],
+            toolbar: [
+                'heading',
+                '|',
+                'bold', 'italic', 'link', 'blockquote',
+                '|',
+                'bulletedList', 'numberedList',
+                '|',
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            console.log('Editor was initialized', editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
